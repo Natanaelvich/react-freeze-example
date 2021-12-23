@@ -1,20 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-export default function App() {
+import Home3 from "./screens/Home3";
+import Home2 from "./screens/Home2";
+import Home1 from "./screens/Home1";
+import { CountProvider } from "./contexts/countContext";
+
+
+
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList {
+      Home1: undefined;
+      Home2: undefined;
+      Home3: undefined;
+    }
+  }
+}
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <CountProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home1" component={Home1} />
+          <Stack.Screen name="Home2" component={Home2} />
+          <Stack.Screen name="Home3" component={Home3} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </CountProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
