@@ -12,9 +12,9 @@ export default function Home2() {
 
   const { count, incrementCount, decrementCount } = useCount();
 
-  useEffect(() => {
+ 
     console.log("Home2");
-  }, [count]);
+
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>

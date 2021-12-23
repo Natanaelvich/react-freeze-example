@@ -11,9 +11,9 @@ export default function Home1() {
   const navigation = useNavigation();
   const { count } = useCount();
 
-  useEffect(() => {
+
     console.log("Home1");
-  }, [count]);
+
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
